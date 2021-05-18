@@ -100,6 +100,7 @@ All images built for `linux/amd64` and `linux/arm64`
 | `NGINX_MODSECURITY_USE_OWASP_CRS`                    |                             | See [ModSecurity]                   |
 | `NGINX_MULTI_ACCEPT`                                 | `on`                        |                                     |
 | `NGINX_NO_DEFAULT_HEADERS`                           |                             |                                     |
+| `NGINX_NO_FLOC_HEADER`                               |                             |                                     |
 | `NGINX_REAL_IP_HEADER`                               | `X-Real-IP`                 |                                     |
 | `NGINX_REAL_IP_RECURSIVE`                            | `off`                       |                                     |
 | `NGINX_RESET_TIMEDOUT_CONNECTION`                    | `off`                       |                                     |
@@ -198,6 +199,7 @@ Applied to all presets by default, can be disabled via `$NGINX_VHOST_NO_DEFAULTS
 - Pass real IP from a reverse proxy via `$NGINX_SET_REAL_IP_FROM`, e.g. `172.17.0.0/16` for docker network 
 - Customize the header which value will be used to replace the client address via `$NGINX_REAL_IP_HEADER`
 - Default recommended headers can be disabled via `$NGINX_NO_DEFAULT_HEADERS` (defined in `nginx.conf`)
+- Default recommended `Permissions-Policy` header can be disabled via `NGINX_NO_FLOC_HEADER` (defined in `nginx.conf`). More info [here](https://plausible.io/blog/google-floc) and [here](https://www.eff.org/deeplinks/2021/03/googles-floc-terrible-idea).
 - Error page file can be customized for HTTP errors `403` (`$NGINX_ERROR_403_URI`) and `404` (`$NGINX_ERROR_404_URI`)
 - Default error page for HTTP errors `500`, `502`, `503`, `504` can be disabled via `$NGINX_HIDE_50x_ERRORS`
 - Access to hidden files (starting with `.`) can be allowed via `$NGINX_ALLOW_ACCESS_HIDDEN_FILES`

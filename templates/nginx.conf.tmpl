@@ -127,6 +127,10 @@ http {
     add_header                  X-Content-Type-Options nosniff;
     {{ end }}
 
+    {{ if not (getenv "NGINX_NO_FLOC_HEADER") }}
+    add_header                  Permissions-Policy 'interest-cohort=()';
+    {{ end }}
+
     map $uri $no_slash_uri {
         ~^/(?<no_slash>.*)$ $no_slash;
     }
